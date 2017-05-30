@@ -15,8 +15,6 @@ Task("Default")
    .Does(() => {
      var settings = new MavenSettings();
      settings.Goal.Add("clean");
-     settings.Goal.Add("package");
-
      if (buildType == "development") {
        settings.Goal.Add("install");
      }
