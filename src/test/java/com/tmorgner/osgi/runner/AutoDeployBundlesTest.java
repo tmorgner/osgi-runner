@@ -38,27 +38,27 @@ public class AutoDeployBundlesTest {
   public void scanTestData() {
     final String validatedBaseDir = getValidatedBaseDir();
     AutoDeployBundles b = new AutoDeployBundles(logger::debug);
-    b.scan(10, new File(validatedBaseDir));
+    b.scan(10, new File(validatedBaseDir).getAbsoluteFile());
     final List<BundlesWithRunLevel> bundles = b.getBundles();
     Assert.assertEquals(3, bundles.size());
     Assert.assertThat(find(bundles, 10).getFiles(),
         IsIterableContainingInAnyOrder.containsInAnyOrder(
-            Paths.get("src", "test","data", "50 - Not a rc dir", "empty.jar").toFile(),
-            Paths.get("src", "test","data", "empty.jar").toFile(),
-            Paths.get("src", "test","data", "no-runlevel", "empty.jar").toFile(),
-            Paths.get("src", "test","data", "second.jar").toFile()
+            Paths.get("src", "test","data", "50 - Not a rc dir", "empty.jar").toFile().getAbsoluteFile(),
+            Paths.get("src", "test","data", "empty.jar").toFile().getAbsoluteFile(),
+            Paths.get("src", "test","data", "no-runlevel", "empty.jar").toFile().getAbsoluteFile(),
+            Paths.get("src", "test","data", "second.jar").toFile().getAbsoluteFile()
         )
     );
     Assert.assertThat(find(bundles, 20).getFiles(),
         IsIterableContainingInAnyOrder.containsInAnyOrder(
-            Paths.get("src", "test","data", "rc20-runlevel context", "empty.jar").toFile(),
-            Paths.get("src", "test","data", "rc20-runlevel context", "nested", "empty.jar").toFile(),
-            Paths.get("src", "test","data", "rc20-runlevel context", "second.jar").toFile()
+            Paths.get("src", "test","data", "rc20-runlevel context", "empty.jar").toFile().getAbsoluteFile(),
+            Paths.get("src", "test","data", "rc20-runlevel context", "nested", "empty.jar").toFile().getAbsoluteFile(),
+            Paths.get("src", "test","data", "rc20-runlevel context", "second.jar").toFile().getAbsoluteFile()
         )
     );
     Assert.assertThat(find(bundles, 30).getFiles(),
         IsIterableContainingInAnyOrder.containsInAnyOrder(
-            Paths.get("src", "test","data", "rc20-runlevel context", "rc30-nested", "empty.jar").toFile()
+            Paths.get("src", "test","data", "rc20-runlevel context", "rc30-nested", "empty.jar").toFile().getAbsoluteFile()
         )
     );
   }

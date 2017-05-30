@@ -13,7 +13,7 @@
   <parent>
     <groupId>com.tmorgner</groupId>
     <artifactId>global-parent-pom</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <relativePath>../global-parent-pom/pom.xml</relativePath>
   </parent>
 
@@ -80,6 +80,30 @@
             </manifest>
           </archive>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>add-test-source</id>
+            <!--
+                This will help m2eclipse to recognize the folder as source
+                folder after update project configuration.
+            -->
+            <phase>process-resources</phase>
+            <!--            <phase>generate-test-sources</phase>-->
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/it/java</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
