@@ -13,16 +13,15 @@ var buildType = Argument("buildType", "development");
 
 Task("Default")
    .Does(() => {
-     var settings = new MavenSettings();
-     settings.Goal.Add("clean");
+
+     MavenActions.RunMaven("clean");
+
      if (buildType == "development") {
-       settings.Goal.Add("install");
+       MavenActions.RunMaven("install");
      }
      else {
-       settings.Goal.Add("deploy");
+       MavenActions.RunMaven("deploy");
      }
-
-     MavenActions.RunMaven(settings);
    });
 
 //////////////////////////////////////////////////////////////////////
