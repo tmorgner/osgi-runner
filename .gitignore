@@ -21,3 +21,8 @@ out.txt
 
 # For this project: Keep the child projects off limits.
 /projects
+
+/build-artefacts
+!/tools/packages.config
+/tools/*
+pom.xml.versionsBackup
