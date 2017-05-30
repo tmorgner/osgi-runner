@@ -1,0 +1,23 @@
+# Ignore maven build results
+target
+
+# Dont want to store IDE specific configs in the repository. 
+# This is for dev-machines only.
+.classpath
+.project
+.settings/
+/.idea
+*.iml
+# Intellij seems to love writing to predefined directories.
+/classes
+
+# Some launchers produce garbage by default.
+tomcat.8080
+tomcat.*/
+
+# Never include test outputs or other debug stuff
+test-output/
+out.txt
+
+# For this project: Keep the child projects off limits.
+/projects
