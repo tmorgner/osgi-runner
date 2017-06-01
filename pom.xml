@@ -7,7 +7,7 @@
   <groupId>com.tmorgner.osgi.runner</groupId>
   <artifactId>osgi-runner</artifactId>
   <name>data-platform</name>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1-beta.1+0</version>
   <packaging>jar</packaging>
 
   <parent>
