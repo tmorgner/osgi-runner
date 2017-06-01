@@ -19,6 +19,7 @@ GitFlow.ApplyVersionNumbers = (cause, version) => {
      // This will yield 1.0.0-beta.1+2 (beta-build 1 with 2 commits in the branch)
     MavenActions.UpdateMavenVersionNumber(cause,versionInfo.FullSemVer);
   }
+  MavenActions.RunMaven("versions:commit");
 };
 
 //////////////////////////////////////////////////////////////////////

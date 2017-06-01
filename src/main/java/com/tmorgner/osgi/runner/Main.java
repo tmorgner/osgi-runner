@@ -53,62 +53,6 @@ public class Main {
    **/
   public static final String SHUTDOWN_HOOK_PROP = "felix.shutdown.hook";
 
-  private static final String[] EXTRA_PACKAGES = {
-      "sun.misc"
-  };
-
-  private static final String[] JAVAFX_PACKAGES = {
-      "javafx.animation",
-      "javafx.application",
-      "javafx.beans",
-      "javafx.beans.binding",
-      "javafx.beans.property",
-      "javafx.beans.property.adapter",
-      "javafx.beans.value",
-      "javafx.css",
-      "javafx.collections",
-      "javafx.collections.transformation",
-      "javafx.concurrent",
-      "javafx.embed.swing",
-      "javafx.embed.awt",
-      "javafx.event",
-      "javafx.fxml",
-      "javafx.geometry",
-      "javafx.print",
-      "javafx.scene",
-      "javafx.scene.canvas",
-      "javafx.scene.chart",
-      "javafx.scene.control",
-      "javafx.scene.control.cell",
-      "javafx.scene.effect",
-      "javafx.scene.image",
-      "javafx.scene.input",
-      "javafx.scene.layout",
-      "javafx.scene.media",
-      "javafx.scene.paint",
-      "javafx.scene.shape",
-      "javafx.scene.text",
-      "javafx.scene.transform",
-      "javafx.scene.web",
-      "javafx.stage",
-      "javafx.util",
-      "javafx.util.converter",
-      "netscape.javascript",
-      // implementation details for controlsfx
-      "com.sun.javafx.collections",
-      "com.sun.javafx.css",
-      "com.sun.javafx.css.converters",
-      "com.sun.javafx.event",
-      "com.sun.javafx.runtime",
-      "com.sun.javafx.scene.control",
-      "com.sun.javafx.scene.control.behavior",
-      "com.sun.javafx.scene.control.skin",
-      "com.sun.javafx.scene.text",
-      "com.sun.javafx.scene.traversal",
-      "com.sun.javafx.webkit",
-      "com.sun.webkit",
-      "javax.swing,javax.swing.table"
-  };
   private static Framework m_fwk = null;
 
   protected static Framework getFramework() {
@@ -278,14 +222,6 @@ public class Main {
     configProps.put("felix.auto.deploy.action", "install,start,update,uninstall");
     configProps.put("felix.auto.deploy.dir", "bundles");
     configProps.put("felix.startlevel.bundle", "100");
-
-    // todo: Use a system-fragment bundle instead ..
-    configProps.put("org.osgi.framework.system.packages.extra",
-        String.join(",",
-            String.join(",", EXTRA_PACKAGES),
-            String.join(",", JAVAFX_PACKAGES)
-        )
-    );
 
     configProps = LauncherUtil.loadConfigProperties(configProps);
 

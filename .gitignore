@@ -23,6 +23,9 @@ out.txt
 /projects
 
 /build-artefacts
-!/tools/packages.config
 /tools/*
+!/tools/packages.config
 pom.xml.versionsBackup
+
+# Created during the integration test
+felix-cache
